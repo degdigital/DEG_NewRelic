@@ -16,9 +16,14 @@ class DEG_NewRelic_Model_Observer
         if (extension_loaded('newrelic')) {
             $front = $observer->getFront();
             $response = $front->getResponse()->getBody();
-            if (Mage::helper('core')->jsonDecode($response)) {
-                newrelic_disable_autorum();
+            try {
+                if (Mage::helper('core')->jsonDecode($response)) {
+                    newrelic_disable_autorum();
+                }
+            } catch (Exception $e) {
+                //Cannot be decoded, so it is not JSON and can be ignored.
             }
+
         }
     }
 }
