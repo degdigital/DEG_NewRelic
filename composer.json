@@ -1,0 +1,14 @@
+{
+  "name": "deg/new_relic",
+  "type": "magento-module",
+  "description": "Adds functionality to a New Relic integration",
+  "require": {
+    "magento-hackathon/magento-composer-installer":"*"
+  },
+  "extra":{
+    "map":[
+      ["app/code/community/DEG/NewRelic", "app/code/community/DEG/NewRelic"],
+      ["app/etc/modules/DEG_NewRelic.xml", "app/etc/modules/DEG_NewRelic.xml"]
+    ]
+  }
+}

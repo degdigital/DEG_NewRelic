@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <models>
+            <DEG_NewRelic>
+                <class>DEG_NewRelic_Model</class>
+            </DEG_NewRelic>
+        </models>
+        <events>
+            <controller_front_send_response_before>
+                <observers>
+                    <DEG_NewRelic>
+                        <class>DEG_NewRelic/Observer</class>
+                        <method>removeRumFromJSResponses</method>
+                    </DEG_NewRelic>
+                </observers>
+            </controller_front_send_response_before>
+        </events>
+    </global>
+</config>
